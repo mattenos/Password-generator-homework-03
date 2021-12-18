@@ -21,10 +21,37 @@ var length = parseInt(prompt("How many characters would you like your password t
 
  var hasSymbols  = confirm("Press OK to include special characters.");
 
- if(hasLowercase === false && hasUppercase === false && hasNumeric === false && hasSpecialcharacters === false) {
+ if(hasLowercase === false && hasUppercase === false && hasNumeric === false && hasSymbols === false) {
    alert("You must include at least one character type.");
-   return null;
+   return null; 
   }
+
+var userPassword = "";
+
+  for(let i = 0; i < length; i++) {
+    let possibleCharacters = [];
+    if(hasLowercase) {
+      possibleCharacters.push(getRandomLower());
+    }
+    if(hasUppercase) {
+      possibleCharacters.push(getRandomUpper());
+    }
+    if(hasNumeric) {
+      possibleCharacters.push(getRandomNumber());
+    }
+    if(hasSymbols) {
+      possibleCharacters.push(getRandomSymbol());
+    }
+    console.log(possibleCharacters);
+    
+// Random position inside an array
+ var randomCharacterIndex = Math.floor(Math.random() * possibleCharacters.length)
+// Grabbing value at that position
+ userPassword += possibleCharacters[randomCharacterIndex]
+  }
+  
+  console.log(userPassword);
+  return userPassword;
 
   function getRandomLower() {
     return String.fromCharCode(Math.floor(Math.random() * 26) + 96);
