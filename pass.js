@@ -54,15 +54,15 @@ var userPassword = "";
   return userPassword;
 
   function getRandomLower() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 96);
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
   }
   
   function getRandomUpper() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 64);
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
   }
   
   function getRandomNumber() {
-    return +String.fromCharCode(Math.floor(Math.random() * 10) + 47);
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
   }
   
   function getRandomSymbol() {
