@@ -1,7 +1,5 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//Generate password function
 function generatePassword() {
 console.log('Hey, this clicked!');
 var length = parseInt(prompt("How many characters would you like your password to contain?"), 10);
@@ -26,26 +24,37 @@ var length = parseInt(prompt("How many characters would you like your password t
  if(hasLowercase === false && hasUppercase === false && hasNumeric === false && hasSpecialcharacters === false) {
    alert("You must include at least one character type.");
    return null;
+  }
 
- 
-   
- } 
-
-
-
+  function getRandomLower() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 96);
+  }
+  
+  function getRandomUpper() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 64);
+  }
+  
+  function getRandomNumber() {
+    return +String.fromCharCode(Math.floor(Math.random() * 10) + 47);
+  }
+  
+  function getRandomSymbol() {
+    const symbols = '!@#$%^&*(){}[]=<>/,.'
+    return symbols[Math.floor(Math.random() * symbols.length)];
+  }
 
 }
 
-// Write password to the #password input
+
+
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
